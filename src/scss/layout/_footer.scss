@@ -1,0 +1,15 @@
+footer {
+  background: yellow;
+}
+
+@include media( '<medium' ) {
+  .footer {
+    background: $color__bg--1i;
+  }
+}
+
+@include media( '<small' ) {
+  .footer {
+    background: green;
+  }
+}

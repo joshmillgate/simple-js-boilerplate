@@ -1,0 +1,15 @@
+// --------------------------------------------------------------------
+// Retrieve Font Weight -----------------------------------------------
+// Used in _mixins.scss [@mixin font-weight] --------------------------
+// --------------------------------------------------------------------
+@function get-font-weight($elem) {
+	@return map-get($font__weight, $elem);
+}
+
+// --------------------------------------------------------------------
+// Retrieve Padding of Content Area Elements --------------------------
+// Used in _mixins.scss [@mixin font-size] ----------------------------
+// --------------------------------------------------------------------
+@function get-content-padding($elem) {
+	@return map-get($content__padding, $elem);
+}

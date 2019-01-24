@@ -1,0 +1,90 @@
+// Font Weight
+@mixin font-weight($elem) {
+	font-weight: get-font-weight($elem);
+}
+// Shadow
+@mixin shadow($layout: false) {
+	@if ( $layout == 'dark' ) {
+		box-shadow: 0 16px 48px rgba(darken(color(bg, 1i), 35%), .2);
+	} @else {
+		box-shadow: 0 16px 48px rgba(color(bg, 1), .5);
+	}
+}
+// Shadow-sm
+@mixin shadow-sm($layout: false) {
+	@if ( $layout == 'dark' ) {
+		box-shadow: 0 16px 24px rgba(darken(color(bg, 1i), 35%), .2);
+	} @else {
+		box-shadow: 0 16px 24px rgba(color(bg, 1), .5);
+	}
+}
+// Divider
+@mixin divider-mix($layout: false) {
+	display: block;
+	height: 1px;
+	@if ( $layout == 'dark' ) {
+		background: color(bg, 3i);
+	} @else {
+		background: color(bg, 3);
+	}
+}
+// Divider
+@mixin divider($type: false, $layout: false) {
+	@if ( $type == 'before' ) {
+		position: relative;
+
+		&::before {
+			content: '';
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			@include divider-mix($layout);
+		}
+	} @else if ($type == 'after') {
+		position: relative;
+
+		&::after {
+			content: '';
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			width: 100%;
+			@include divider-mix($layout);
+		}
+	} @else {
+		@include divider-mix($layout);
+	}
+}
+// Mixin for border-radius
+@mixin border-radius($radius) {
+  -moz-border-radius: $radius;
+  -webkit-border-radius: $radius;
+  border-radius: $radius;
+}
+// Mixin for css transition
+@mixin transition($transition) {
+    -moz-transition:    $transition;
+    -o-transition:      $transition;
+    -webkit-transition: $transition;
+    -ms-transition:     $transition;
+    transition:         $transition;
+}
+// Media query for mobile first layout 
+@mixin small-breakpoint {
+  @media (min-width: #{$mobile}) {
+    @content;
+  }
+}
+// Break on tablet
+@mixin medium-breakpoint {
+  @media (min-width: #{$tablet}) {
+    @content;
+  }
+}
+// Break on desktop
+@mixin large-breakpoint {
+  @media (min-width: #{$desktop}) {
+    @content;
+  }
+}

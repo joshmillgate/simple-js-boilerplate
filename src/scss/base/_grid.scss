@@ -1,0 +1,91 @@
+// --------------------------------------------
+// Grid ---------------------------------------
+// --------------------------------------------
+
+$column-padding: 1rem;
+$margin-bottom: 1rem;
+
+// Full container 
+.full-container {
+	max-width: 100%;
+	padding: 0 1rem;
+}
+
+// Container
+.container {
+	max-width: $large;
+	padding: 0 $padding;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+// Small container
+.small-container {
+	@extend .container;
+	max-width: $small;
+}
+
+// Medium container
+.medium-container {
+	@extend .container;
+	max-width: $medium;
+}
+
+// Extra large container
+.xlarge-container {
+	@extend .container;
+	max-width: $x-large;
+}
+
+// Content
+.content-section {
+	padding: $content-padding-mobile;
+}
+
+@include small-breakpoint {
+	.content-section {
+		padding: $content-padding;
+	}
+}
+
+// The rows have a negative margin  which are offset by the padding on the columns.
+%column-padding {
+	padding-left: $column-padding;
+	padding-right: $column-padding;
+}
+
+%row-margin {
+	margin-left: -$column-padding;
+	margin-right: -$column-padding;
+}
+
+// Flex row
+.flex-row {
+	@extend %row-margin;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+}
+
+.flex-small,
+.flex-large {
+	@extend %column-padding;
+	flex-basis: 100%;
+	margin-bottom: $margin-bottom;
+}
+
+/* Small screen breakpoint */
+@include small-breakpoint {
+	.flex-small {
+		flex: 1;
+		margin-bottom: 0;
+	}
+}
+
+/* Large screen breakpoint */
+@include large-breakpoint {
+	.flex-large {
+		flex: 1;
+		margin-bottom: 0;
+	}
+}
